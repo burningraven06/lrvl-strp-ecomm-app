@@ -14,7 +14,9 @@
   height: 400px;
 }
 
-
+.card .card-content p {
+  height: 44px;
+}
 
 
 /* Override Default CSS */
