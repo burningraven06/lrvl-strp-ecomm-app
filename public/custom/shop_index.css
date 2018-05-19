@@ -1,0 +1,27 @@
+.cust_fz36{
+  font-size:36px;
+}
+.mb0{
+  margin-bottom:0
+}
+.mt16{
+  margin-top:16px;
+}
+
+
+/* Add styles to existing elemnts */
+.card .card-image img {
+  height: 400px;
+}
+
+
+
+
+/* Override Default CSS */
+.card-action{
+  color:#ee6e73;
+}
+
+.card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating) {
+  color: #ee6e73;
+}
