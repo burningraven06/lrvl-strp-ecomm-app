@@ -1,4 +1,4 @@
-.cust_fz36{
+.cust_fs36{
   font-size:36px;
 }
 .mb0{
@@ -6,6 +6,12 @@
 }
 .mt16{
   margin-top:16px;
+}
+.cust_fs30{
+  font-size:30px;
+}
+.cust_fs24{
+  font-size:24px;
 }
 
 
@@ -21,9 +27,11 @@
 
 /* Override Default CSS */
 .card-action{
-  color:#ee6e73;
+  /* color:#ee6e73; */
+  color: #455a64;
 }
 
 .card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating) {
-  color: #ee6e73;
+  /* color: #ee6e73; */
+  color: #00695c;
 }

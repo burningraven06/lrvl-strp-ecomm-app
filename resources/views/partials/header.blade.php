@@ -1,18 +1,27 @@
 <nav>
-  <div class="nav-wrapper">
-    <a href="/" class="brand-logo">LRVL Shop</a>
-    <ul id="nav-mobile" class="right hide-on-med-and-down">
-      <li>
-        <a href="#!" class='dropdown-trigger' data-target="user_menuitems_dropdown" title="Settings">
-          <i class='material-icons'> person</i>
-        </a>
-      </li>
-      <li>
-        <a href="#!" title="Cart">
-          <i class='material-icons'>shopping_cart</i>
-        </a>
-      </li>
-    </ul>
+  <div class="nav-wrapper cyan darken-4">
+    <div class='container'>
+        
+      <a href="/" class="brand-logo">LRVL Shop</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li>
+          <a href="#!" class='dropdown-trigger' data-target="user_menuitems_dropdown" title="Settings">
+            <i class='material-icons'> settings</i>
+          </a>
+        </li>
+        <li>
+          <a href="#!" title="Cart">
+            <i class='material-icons'>shopping_cart</i>
+          </a>
+        </li>
+        <li>
+          <a href="{{ route('userGetSignupRoute')}}" title="Signup">
+            <i class='material-icons'>person_add</i>
+          </a>
+        </li>
+      </ul>
+    </div>
+
   </div>
 </nav>
 

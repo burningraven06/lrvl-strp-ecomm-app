@@ -15,3 +15,13 @@ Route::get('/', [
   'uses' => 'ProductController@getIndex',
   'as' => 'productIndexRoute'
 ]);
+
+Route::get('/signup', [
+  'uses' => 'UserController@getSignup',
+  'as' => 'userGetSignupRoute'
+]);
+
+Route::post('/signup', [
+  'uses' => 'UserController@postSignup',
+  'as'=>'userPostSignupRoute'
+]);

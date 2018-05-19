@@ -28,12 +28,17 @@
             <div class="card-action ">
               <div class='row mb0'>
                 <div class='col s6'>
-                  <h5 class='center-align'> <em> {{ $product->price}}</em></h5>
+                  <h5 class='center-align'>
+                    <em>
+                      <span class='cust_fs24'>$</span>
+                      <span class='cust_fs30'>{{ $product->price}} </span>
+                    </em>
+                  </h5>
                 </div>
                 <div class='col s6'>
-                  <h5 class='center-align'>
+                  <h5 class='right-align'>
                     <a href="#" title='Add to Cart'>
-                      <i class='material-icons cust_fz36'>add_shopping_cart</i>
+                      <i class='material-icons cust_fs30'>add_shopping_cart</i>
                     </a>
                   </h5>
                 </div>
