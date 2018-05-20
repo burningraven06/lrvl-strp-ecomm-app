@@ -5,5 +5,6 @@
 @endsection
 
 @section('content')
+  
   {{ $user->email}}
 @endsection

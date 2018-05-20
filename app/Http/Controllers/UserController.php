@@ -29,7 +29,7 @@ class UserController extends Controller{
 
     $user->save();
     Auth::login($user);
-    
+
     return redirect()->route('productIndexRoute');
   }
 
@@ -41,10 +41,10 @@ class UserController extends Controller{
     $this->validate($req, ['email' => 'required', 'password' => 'required']);
 
     if (Auth::attempt(['email' => $req['email'], 'password' => $req['password']]) ){
-      return redirect()->route('userProfileRoute');
+      return redirect()->route('userProfileRoute')->with(['success_message' => 'Welcome']);
     }
 
-    return redirect()->back()->with(['fail' => 'Invalid Credentials']);
+    return redirect()->back()->with(['fail_message' => 'Invalid Credentials']);
   }
 
   public function getUserProfile(){

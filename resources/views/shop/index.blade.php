@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('styles')
-  <link rel='stylesheet' href='{{ asset('custom/shop_index.css')}}' />
+  <link rel='stylesheet' href='{{ asset('custom/css/shop_index.css')}}' />
 @endsection
 
 @section('title')
@@ -37,7 +37,7 @@
                 </div>
                 <div class='col s6'>
                   <h5 class='right-align'>
-                    <a href="#" title='Add to Cart'>
+                    <a href="{{ route('productAddToCartRoute', ['id' => $product->id])}}" title='Add to Cart'>
                       <i class='material-icons cust_fs30'>add_shopping_cart</i>
                     </a>
                   </h5>

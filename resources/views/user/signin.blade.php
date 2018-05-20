@@ -5,12 +5,10 @@
 @endsection
 
 @section('styles')
-  <link rel='stylesheet' href='{{ asset('custom/signup_signin.css')}}' />
+  <link rel='stylesheet' href='{{ asset('custom/css/signup_signin.css')}}' />
 @endsection
 
 @section('content')
-
-@include('partials.messages')
 
   <div class="row">
     <form class='col s8 ' action="{{ route('userPostSigninRoute')}}" method="post">
