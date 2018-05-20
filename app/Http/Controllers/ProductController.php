@@ -31,4 +31,45 @@ class ProductController extends Controller{
     return redirect()->route('productIndexRoute')->with(['success_message' => "Product Added to Cart"]);
   }
 
+  public function getShowCart(){
+    if (!Session::has('cart')){
+      $context = [
+        'cart_products' => null
+      ];
+      return view('shop.shopping-cart', $context);
+    }
+
+    $oldCart = Session::get('cart');
+    $cart = new Cart($oldCart);
+
+    $context = [
+      'sl_count' => 0,
+      'cart_products' => $cart->unique_products,
+      'cart_totalPrice' => $cart->totalPrice,
+      'cart_totalQty' => $cart->totalQty
+    ];
+    return view('shop.shopping-cart', $context);
+  }
+
+  public function getCheckout(){
+    if (!Session::has('cart')){
+      $context = [
+        'cart_products' => null
+      ];
+      return view('shop.shopping-cart', $context);
+    }
+    $oldCart = Session::get('cart');
+    $cart = new Cart($oldCart);
+
+    $context = [
+      'cart_products' => true,
+      'totalPrice' => $cart->totalPrice
+    ];
+    return view('shop.checkout', $context);
+  }
+
+  public function postCheckout(Request $req){
+    return "wow";
+  }
+
 }

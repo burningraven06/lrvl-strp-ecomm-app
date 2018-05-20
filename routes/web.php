@@ -22,6 +22,25 @@ Route::get('/add-to-cart/{id}', [
   'as' => 'productAddToCartRoute'
 ]);
 
+Route::get('/shopping-cart', [
+  'uses' => 'ProductController@getShowCart',
+  'as' => 'productShowCartRoute'
+]);
+
+Route::get('/checkout', [
+  'uses' => 'ProductController@getCheckout',
+  'as' => 'checkoutRoute'
+]);
+
+Route::post('/checkout', [
+  'uses' => 'ProductController@postCheckout',
+  'as' => 'postCheckoutRoute'
+]);
+
+
+
+
+
 Route::group(['prefix' => 'user'], function(){
 
   Route::group(['middleware' => 'guest'], function(){

@@ -1,3 +1,18 @@
+.nav_li{
+  width:auto;
+}
+
 .nav_span{
   display:none;
+}
+
+nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
+  display: inline;
+}
+
+nav ul a span.badge {
+  display:inline;
+  margin-left:-5px;
+  font-size:16px;
+  color: white;
 }

@@ -1,0 +1,22 @@
+.cust_fs36{
+  font-size: 36px !important;
+  text-transform: capitalize;
+}
+.cust_fs18{
+  font-size: 18px !important;
+}
+.mt64{
+  margin-top: 64px;
+}
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+
+input[type=number] {
+  -moz-appearance:textfield;
+}
+
+.pad_left_zero{
+  padding-left: 0px;
+}

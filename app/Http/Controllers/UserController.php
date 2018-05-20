@@ -41,7 +41,10 @@ class UserController extends Controller{
     $this->validate($req, ['email' => 'required', 'password' => 'required']);
 
     if (Auth::attempt(['email' => $req['email'], 'password' => $req['password']]) ){
-      return redirect()->route('userProfileRoute')->with(['success_message' => 'Welcome']);
+      $context = [
+        'success_message' => "Welcome " . Auth::user()->email
+      ];
+      return redirect()->route('userProfileRoute')->with($context);
     }
 
     return redirect()->back()->with(['fail_message' => 'Invalid Credentials']);

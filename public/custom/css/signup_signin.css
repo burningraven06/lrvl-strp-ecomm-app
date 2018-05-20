@@ -5,3 +5,10 @@
 input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:focus, input:-webkit-autofill{
   background-color: #b2dfdb !important;
 }
+
+.mt64 {
+  margin-top: 64px;
+}
+.mb32{
+  margin-bottom: 32px;
+}
