@@ -13,15 +13,23 @@ class UserController extends Controller{
   }
 
   public function postSignup(Request $req){
-    $this->validate($req, ['email' => 'required | unique:users', 'password' => 'required | min:8']);
+    $this->validate($req, [
+      'email' => 'required | unique:users',
+      'password' => 'required | min:8',
+      'first_name' => 'required | min:3 | max:30',
+      'last_name' => 'required | min:3 | max: 30'
+    ]);
 
     $user = new User([
+      'first_name' => $req['first_name'],
+      'last_name' => $req['last_name'],
       'email' => $req['email'],
       'password' => bcrypt($req['password'])
     ]);
 
     $user->save();
-
+    Auth::login($user);
+    
     return redirect()->route('productIndexRoute');
   }
 
@@ -36,7 +44,7 @@ class UserController extends Controller{
       return redirect()->route('userProfileRoute');
     }
 
-    return redirect()->back();
+    return redirect()->back()->with(['fail' => 'Invalid Credentials']);
   }
 
   public function getUserProfile(){
@@ -45,5 +53,10 @@ class UserController extends Controller{
       'user' => $user
     ];
     return view('user.profile', $context);
+  }
+
+  public function postSignout(){
+    Auth::logout();
+    return redirect()->route('productIndexRoute');
   }
 }

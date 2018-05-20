@@ -21,17 +21,26 @@
           </a>
         </li>
         <li class='nav_li'>
-          <a href="{{ route('userGetSignupRoute')}}" title="Signup">
-            <span class='nav_span'> Signup</span>
+          <a href="{{ route('userGetSignupRoute')}}" title="Sign Up">
+            <span class='nav_span'> Sign up</span>
             <i class='material-icons '>person_add</i>
           </a>
         </li>
-        <li class='nav_li'>
-          <a href="{{ route('userGetSigninRoute')}}" title="Signin">
-            <span class='nav_span'> Login</span>
-            <i class='material-icons '>input</i>
-          </a>
-        </li>
+        @if(Auth::check())
+          <li class='nav_li'>
+            <a href="{{ route('userPostSignoutRoute')}}" title="Sign Out">
+              <span class='nav_span'> Sign Out</span>
+              <i class='material-icons '>call_made</i>
+            </a>
+          </li>
+        @else
+          <li class='nav_li'>
+            <a href="{{ route('userGetSigninRoute')}}" title="Sign In">
+              <span class='nav_span'> Sign in</span>
+              <i class='material-icons '>input</i>
+            </a>
+          </li>
+        @endif
       </ul>
     </div>
 

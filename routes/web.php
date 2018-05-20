@@ -36,6 +36,11 @@ Route::post('/signin', [
   'as' => 'userPostSigninRoute'
 ]);
 
+Route::get('/signout', [
+  'uses' => 'UserController@postSignout',
+  'as' => 'userPostSignoutRoute'
+]);
+
 Route::get('/user', [
   'uses' => "UserController@getUserProfile",
   'as' => 'userProfileRoute'

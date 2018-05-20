@@ -21,6 +21,18 @@
       </div>
       <input type='hidden' name="_token" value="{{ Session::token()}}" />
       <div class='row'>
+        <div class='col s6 input-field'>
+          <i class="material-icons prefix">account_circle</i>
+          <input id='first_name' type='text' class='validate cust_fs36' name='first_name' required="" minlength="3" maxlength="30" />
+          <label for='first_name' data-error="wrong" data-success="right"> First Name </label>
+        </div>
+        <div class='col s6 input-field'>
+          <i class="material-icons prefix">account_circle</i>
+          <input id='last_name' type='text' class='validate cust_fs36' name='last_name' required=""  minlength="3" maxlength="30" />
+          <label for='last_name' data-error="wrong" data-success="right"> Last Name </label>
+        </div>
+      </div>
+      <div class='row'>
         <div class='col s12 input-field'>
           <i class="material-icons prefix">email</i>
           <input id='email' type='email' class='validate cust_fs36' name='email' required="" />
