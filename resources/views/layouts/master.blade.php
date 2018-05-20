@@ -5,6 +5,7 @@
     <title> @yield('title') </title>
     <link rel='stylesheet' href=' {{ asset('materialize/materialize.min.css') }}' />
     <link rel='stylesheet' href=' {{ asset('materialize/materialize-icons.css')}}' />
+    {{-- <link ree='stylesheet' href=' {{ asset('custom/mystyles.css')}}' /> --}}
     @yield('styles')
   </head>
 

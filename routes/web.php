@@ -13,35 +13,52 @@
 
 Route::get('/', [
   'uses' => 'ProductController@getIndex',
-  'as' => 'productIndexRoute'
+  'as' => 'productIndexRoute',
+  'middleware' => 'guest'
 ]);
 
-Route::get('/signup', [
-  'uses' => 'UserController@getSignup',
-  'as' => 'userGetSignupRoute'
-]);
+Route::group(['prefix' => 'user'], function(){
 
-Route::post('/signup', [
-  'uses' => 'UserController@postSignup',
-  'as'=>'userPostSignupRoute'
-]);
+  Route::group(['middleware' => 'guest'], function(){
 
-Route::get('/signin', [
-  'uses' => 'UserController@getSignin',
-  'as' => 'userGetSigninRoute'
-]);
+    Route::get('/signup', [
+      'uses' => 'UserController@getSignup',
+      'as' => 'userGetSignupRoute',
+    ]);
 
-Route::post('/signin', [
-  'uses' => 'UserController@postSignin',
-  'as' => 'userPostSigninRoute'
-]);
+    Route::post('/signup', [
+      'uses' => 'UserController@postSignup',
+      'as'=>'userPostSignupRoute',
+    ]);
 
-Route::get('/signout', [
-  'uses' => 'UserController@postSignout',
-  'as' => 'userPostSignoutRoute'
-]);
+    Route::get('/signin', [
+      'uses' => 'UserController@getSignin',
+      'as' => 'userGetSigninRoute',
+    ]);
 
-Route::get('/user', [
-  'uses' => "UserController@getUserProfile",
-  'as' => 'userProfileRoute'
-]);
+    Route::post('/signin', [
+      'uses' => 'UserController@postSignin',
+      'as' => 'userPostSigninRoute',
+    ]);
+
+  });
+
+  Route::group(['middleware' => 'auth'], function(){
+
+    Route::get('/signout', [
+      'uses' => 'UserController@postSignout',
+      'as' => 'userPostSignoutRoute',
+      'middleware' => 'auth'
+    ]);
+
+    Route::get('/profile', [
+      'uses' => "UserController@getUserProfile",
+      'as' => 'userProfileRoute',
+      'middleware' => 'auth'
+    ]);
+
+  });
+
+
+
+});
