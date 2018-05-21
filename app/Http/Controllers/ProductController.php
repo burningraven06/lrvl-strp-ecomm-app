@@ -20,7 +20,7 @@ class ProductController extends Controller{
     return view('shop.index', $context);
   }
 
-  public function getAddToCart(Request $req, $id){
+  public function getAddToCart($id){
     $product = Product::find($id);
     $oldCart = Session::has('cart') ? Session::get('cart') : null;
 
@@ -35,6 +35,64 @@ class ProductController extends Controller{
     ];
 
     return redirect()->route('productIndexRoute')->with($context);
+  }
+
+  public function getCartProductIncreaseByOne($id){
+    $product = Product::find($id);
+    $oldCart = Session::has('cart') ? Session::get('cart') : null;
+
+    $cart = new Cart($oldCart);
+    $cart->addToCart($product, $id);
+
+    Session::put('cart', $cart);
+
+    $context = [
+      'sl_count' => 0,
+      'cart_products' => $cart->unique_products,
+      'cart_totalPrice' => $cart->totalPrice,
+      'cart_totalQty' => $cart->totalQty,
+      'success_message' => 'Product Quantity Incremented'
+    ];
+
+    return redirect()->route('productShowCartRoute')->with($context);
+  }
+
+  public function getCartProductReduceByOne($id){
+    $oldCart = Session::has('cart') ? Session::get('cart') : null;
+
+    $cart = new Cart($oldCart);
+    $cart->reduceByOne($id);
+
+    Session::put('cart', $cart);
+
+    $context = [
+      'sl_count' => 0,
+      'cart_products' => $cart->unique_products,
+      'cart_totalPrice' => $cart->totalPrice,
+      'cart_totalQty' => $cart->totalQty,
+      'success_message' => 'Product Quantity Reduced'
+    ];
+
+    return redirect()->route('productShowCartRoute')->with($context);
+  }
+
+  public function getRemoveItemCompletely($id){
+    $oldCart = Session::has('cart') ? Session::get('cart') : null;
+
+    $cart = new Cart($oldCart);
+    $cart->removeItem($id);
+
+    Session::put('cart', $cart);
+
+    $context = [
+      'sl_count' => 0,
+      'cart_products' => $cart->unique_products,
+      'cart_totalPrice' => $cart->totalPrice,
+      'cart_totalQty' => $cart->totalQty,
+      'success_message' => 'Product Completely Reduced'
+    ];
+
+    return redirect()->route('productShowCartRoute')->with($context);
   }
 
   public function getShowCart(){

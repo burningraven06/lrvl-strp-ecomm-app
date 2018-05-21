@@ -36,8 +36,15 @@
                 <td> {{ $product['item']['title'] }}</td>
                 <td class='center-align'> {{ $product['qty']}}</td>
                 <td class='center-align'>
-                  <span class='cart_item_actionbtn' title='Reduce by 1'> <i class='material-icons'>remove</i> </span>
-                  <span class='cart_item_actionbtn ml8' title='Remove Completely'> <i class='material-icons'>remove_shopping_cart</i> </span>
+                  <a class='cart_action_anc ml8' href="{{ route('increaseCartProductByOne', ['id' => $product['item']['id']]) }}" title='Increase by 1'>
+                    <i class='material-icons'>add</i>
+                  </a>
+                  <a class='cart_action_anc ml8' href="{{ route('reduceCartProductByOne', ['id' => $product['item']['id']])}}" title='Reduce by 1'>
+                    <i class='material-icons'>remove</i>
+                  </a>
+                  <a class='cart_action_anc ml8' href="{{ route('removeCartItem', ['id' => $product['item']['id']]) }}" title='Remove Completely'>
+                    <i class='material-icons'>remove_shopping_cart</i>
+                  </a>
                 </td>
                 <td class='center-align'> ${{ $product['price']}}</td>
               </tr>

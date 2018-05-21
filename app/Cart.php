@@ -37,4 +37,21 @@ class Cart{
 
   }
 
+  public function reduceByOne($product_id){
+    $this->unique_products[$product_id]['qty']--;
+    $this->unique_products[$product_id]['price'] -= $this->unique_products[$product_id]['item']['price'];
+    $this->totalQty --;
+    $this->totalPrice -= $this->unique_products[$product_id]['item']['price'];
+
+    if($this->unique_products[$product_id]['qty']<= 0){
+      unset($this->unique_products[$product_id]);
+    }
+  }
+
+  public function removeItem($product_id){
+    $this->totalQty -= $this->unique_products[$product_id]['qty'];
+    $this->totalPrice -= $this->unique_products[$product_id]['price'];
+    unset($this->unique_products[$product_id]);
+  }
+
 }

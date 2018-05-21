@@ -22,6 +22,21 @@ Route::get('/add-to-cart/{id}', [
   'as' => 'productAddToCartRoute'
 ]);
 
+Route::get('/add-to-cart/increase/{id}', [
+  'uses' => 'ProductController@getCartProductIncreaseByOne',
+  'as' => 'increaseCartProductByOne'
+]);
+
+Route::get('/add-to-cart/decrease/{id}', [
+  'uses' => 'ProductController@getCartProductReduceByOne',
+  'as' => 'reduceCartProductByOne'
+]);
+
+Route::get('/add-to-cart/remove/{id}', [
+  'uses' => 'ProductController@getRemoveItemCompletely',
+  'as' => 'removeCartItem'
+]);
+
 Route::get('/shopping-cart', [
   'uses' => 'ProductController@getShowCart',
   'as' => 'productShowCartRoute'

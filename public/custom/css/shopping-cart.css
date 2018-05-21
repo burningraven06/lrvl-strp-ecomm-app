@@ -19,6 +19,10 @@ td, th {
 .cart_summary_heading4{
   margin: 1.02rem 0 .912rem 0;
 }
+
+.cart_action_anc{
+  color: #00796b;
+}
 .cart_item_actionbtn{
   cursor: pointer;
 }
