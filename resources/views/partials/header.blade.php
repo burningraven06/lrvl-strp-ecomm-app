@@ -8,7 +8,7 @@
           <li  class='nav_li'>
             <a href="{{ route('userProfileRoute')}}">
               <span class='nav_span center-align'> Profile </span>
-              <i class='material-icons'>settings</i>
+              <i class='material-icons'>person</i>
             </a>
           </li>
           <li class='nav_li'>

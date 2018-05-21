@@ -29,12 +29,14 @@ Route::get('/shopping-cart', [
 
 Route::get('/checkout', [
   'uses' => 'ProductController@getCheckout',
-  'as' => 'checkoutRoute'
+  'as' => 'checkoutRoute',
+  'middleware' => 'auth'
 ]);
 
 Route::post('/checkout', [
   'uses' => 'ProductController@postCheckout',
-  'as' => 'postCheckoutRoute'
+  'as' => 'postCheckoutRoute',
+  'middleware' =>'auth'
 ]);
 
 
@@ -70,7 +72,7 @@ Route::group(['prefix' => 'user'], function(){
   Route::group(['middleware' => 'auth'], function(){
 
     Route::get('/signout', [
-      'uses' => 'UserController@postSignout',
+      'uses' => 'UserController@getSignout',
       'as' => 'userPostSignoutRoute',
       'middleware' => 'auth'
     ]);

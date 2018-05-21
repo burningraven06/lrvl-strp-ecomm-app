@@ -38,6 +38,15 @@
           <button class='btn waves-effect waves-light btn-large red accent-1' type='reset'> Cancel <i class='material-icons right'>block</i> </button>
         </div>
       </form>
+
+      <div class='row'>
+        <div class='s12 mt64'>
+          <h5> Don't have an account yet?</h5>
+          <p>
+            Click <a href="{{ route('userGetSignupRoute')}}"> Here to Sign Up</a> Now!
+          </p>
+        </div>
+      </div>
     </div>
   </div>
 

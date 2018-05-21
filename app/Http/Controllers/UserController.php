@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User as User;
 use Auth as Auth;
+use Session;
 
 class UserController extends Controller{
 
@@ -30,6 +31,14 @@ class UserController extends Controller{
     $user->save();
     Auth::login($user);
 
+    if(Session::has('oldUrl')){
+
+      $oldUrl = Session::get('oldUrl');
+      Session::forget('oldUrl');
+
+      return redirect()->to($oldUrl)->with($context);
+    }
+
     return redirect()->route('productIndexRoute');
   }
 
@@ -44,6 +53,15 @@ class UserController extends Controller{
       $context = [
         'success_message' => "Welcome " . Auth::user()->email
       ];
+
+      if(Session::has('oldUrl')){
+
+        $oldUrl = Session::get('oldUrl');
+        Session::forget('oldUrl');
+
+        return redirect()->to($oldUrl)->with($context);
+      }
+
       return redirect()->route('userProfileRoute')->with($context);
     }
 
@@ -52,13 +70,22 @@ class UserController extends Controller{
 
   public function getUserProfile(){
     $user = Auth::user();
+    $orders = Auth::user()->orders;
+
+    $orders->transform(function($order, $key){
+      $order->cart = unserialize($order->cart);
+      return $order;
+    });
+
+    // $orders = Order::where('user_id', Auth::user()->id);
     $context = [
-      'user' => $user
+      'user' => $user,
+      'orders' => $orders
     ];
     return view('user.profile', $context);
   }
 
-  public function postSignout(){
+  public function getSignout(){
     Auth::logout();
     return redirect()->route('productIndexRoute');
   }

@@ -1,0 +1,27 @@
+.mt48{
+  margin-top: 64px;
+}
+.mt32{
+  margin-top: 32px;
+}
+.mb16{
+  margin-bottom: 16px;
+}
+.order_total_summary{
+  padding-top:16px;
+  padding-bottom:16px;
+  margin:0;
+  /* border-left: 1px solid #009688; */
+  /* border-right: 1px solid #009688; */
+}
+.pad_24{
+  padding:24px;
+}
+
+.collection .collection-item.avatar .secondary-content {
+  top:32px;
+}
+
+.collection .collection-item.avatar:not(.circle-clipper)>.circle, .collection .collection-item.avatar :not(.circle-clipper)>.circle {
+  top:32px;
+}
