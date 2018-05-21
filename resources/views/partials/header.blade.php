@@ -4,7 +4,7 @@
     <div class='row'>
       <div class='col s10 offset-s1'>
         <a href="{{ route('productIndexRoute')}}" class="brand-logo" title="Shop">Rafael Store</a>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <ul id="nav-mobile" class="right">
           <li  class='nav_li'>
             <a href="{{ route('userProfileRoute')}}">
               <span class='nav_span center-align'> Profile </span>

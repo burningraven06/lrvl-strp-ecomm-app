@@ -6,7 +6,7 @@
 
 @section('content')
   <div class='row'>
-    <div class='col s12'>
+    <div class='col s10 offset-s1'>
       <h3> Profile {{ $user->email}} </h3>
     </div>
   </div>

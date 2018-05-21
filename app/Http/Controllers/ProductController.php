@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Product as Product;
 use App\Cart as Cart;
+use App\Order as Order;
 use Session;
+use Auth;
+use \Stripe;
 
 class ProductController extends Controller{
 
@@ -27,8 +30,11 @@ class ProductController extends Controller{
     Session::put('cart', $cart);
 
     // dd(Session::get('cart'));
+    $context = [
+      'success_message' => "Product Added to Cart"
+    ];
 
-    return redirect()->route('productIndexRoute')->with(['success_message' => "Product Added to Cart"]);
+    return redirect()->route('productIndexRoute')->with($context);
   }
 
   public function getShowCart(){
@@ -52,6 +58,7 @@ class ProductController extends Controller{
   }
 
   public function getCheckout(){
+
     if (!Session::has('cart')){
       $context = [
         'cart_products' => null
@@ -69,7 +76,59 @@ class ProductController extends Controller{
   }
 
   public function postCheckout(Request $req){
-    return "wow";
+    if (!Session::has('cart')){
+      return redirect()->route('productShowCartRoute');
+    }
+
+    $oldCart = Session::get('cart');
+    $cart = new Cart($oldCart);
+
+    $stripeKey = env('STRIPE_SECRET_KEY');
+    Stripe\Stripe::setApiKey($stripeKey);
+
+    $charge_description = $req['first_name']." ".$req['last_name']." has been charged $".$cart->totalPrice ;
+
+    try {
+
+      $stripeChargeOptions = [
+        "amount" => $cart->totalPrice * 100,
+        "currency" => "usd",
+        "source" => $req['stripeToken'],
+        "description" => $charge_description
+      ];
+
+      $stripeCharge = Stripe\Charge::create($stripeChargeOptions);
+
+      $order = new Order();
+
+      $order->cart = serialize($cart);
+      $order->cust_full_name = $req['first_name'] ." ".$req['last_name'];
+      $order->cust_email = $req['email'];
+      $order->cust_contact_phone = $req['cellno'];
+      $order->cust_shipping_address = $req['address'];
+      $order->order_note = $req['order_note'];
+      $order->payment_id = $stripeCharge->id;
+
+      Auth::user()->orders()->save($order);
+
+      // $order->user_id = Auth::user()->id;
+      // $order->save();
+
+    } catch (\Exception $e){
+      $context = [
+        'error' => $e->getMessage()
+      ];
+      return redirect()->route('checkoutRoute')->with($context);
+    }
+
+    $context = [
+      'success_message' => "Checkout Successfull. Products Purchased"
+    ];
+
+    Session::forget('cart');
+
+    return redirect()->route('productIndexRoute')->with($context);
+
   }
 
 }
