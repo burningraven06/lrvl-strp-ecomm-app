@@ -39,7 +39,11 @@ class UserController extends Controller{
     //   return redirect()->to($oldUrl);
     // }
 
-    return redirect()->route('productIndexRoute');
+    $context = [
+      'success_message' => 'Registration Successful. Welcome to Raphael Store.'
+    ];
+
+    return redirect()->route('productIndexRoute')->with($context);
   }
 
   public function getSignin(){
@@ -51,7 +55,7 @@ class UserController extends Controller{
 
     if (Auth::attempt(['email' => $req['email'], 'password' => $req['password']]) ){
       $context = [
-        'success_message' => "Welcome " . Auth::user()->email
+        'success_message' => "Hi " . Auth::user()->first_name
       ];
 
       // if(Session::has('oldUrl')){

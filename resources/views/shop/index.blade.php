@@ -5,7 +5,7 @@
 @endsection
 
 @section('title')
-  Rafael: Shop
+  Raphael: Shop
 @endsection
 
 @section('content')

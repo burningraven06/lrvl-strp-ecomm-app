@@ -3,7 +3,7 @@
   <div class="nav-wrapper cyan darken-4">
     <div class='row'>
       <div class='col s10 offset-s1'>
-        <a href="{{ route('productIndexRoute')}}" class="brand-logo" title="Shop">Rafael Store</a>
+        <a href="{{ route('productIndexRoute')}}" class="brand-logo" title="Shop">Raphael Store</a>
         <ul id="nav-mobile" class="right">
           <li  class='nav_li'>
             <a href="{{ route('userProfileRoute')}}">

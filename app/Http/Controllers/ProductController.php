@@ -31,7 +31,7 @@ class ProductController extends Controller{
 
     // dd(Session::get('cart'));
     $context = [
-      'success_message' => "Product Added to Cart"
+      'success_message' => "Product Added to Cart. Thank you for shopping. "
     ];
 
     return redirect()->route('productIndexRoute')->with($context);
@@ -131,7 +131,7 @@ class ProductController extends Controller{
       'cart_products' => true,
       'totalPrice' => $cart->totalPrice
     ];
-    
+
     return view('shop.checkout', $context);
   }
 
@@ -182,7 +182,7 @@ class ProductController extends Controller{
     }
 
     $context = [
-      'success_message' => "Checkout Successfull. Products Purchased"
+      'success_message' => "Checkout Successfull & Products Purchased. Thank you for shopping at Raphael Store."
     ];
 
     Session::forget('cart');
