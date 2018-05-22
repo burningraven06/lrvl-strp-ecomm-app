@@ -123,6 +123,7 @@ class ProductController extends Controller{
       ];
       return view('shop.shopping-cart', $context);
     }
+
     $oldCart = Session::get('cart');
     $cart = new Cart($oldCart);
 
@@ -130,6 +131,7 @@ class ProductController extends Controller{
       'cart_products' => true,
       'totalPrice' => $cart->totalPrice
     ];
+    
     return view('shop.checkout', $context);
   }
 

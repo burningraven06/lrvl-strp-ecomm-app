@@ -14,7 +14,7 @@
       <div class='col s8 offset-2'>
         <h1 class='pink-text'>You haven't added anything in your cart! </h1>
         <h4 class='mt64'>
-          Please <a href="{{ route('productIndexRoute')}}"> shop some products </a>
+          Please <a href="{{ route('productIndexRoute')}}"> shop some products first</a>
         </h4>
       </div>
     </div>

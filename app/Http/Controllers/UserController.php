@@ -31,13 +31,13 @@ class UserController extends Controller{
     $user->save();
     Auth::login($user);
 
-    if(Session::has('oldUrl')){
-
-      $oldUrl = Session::get('oldUrl');
-      Session::forget('oldUrl');
-
-      return redirect()->to($oldUrl)->with($context);
-    }
+    // if(Session::has('oldUrl')){
+    //
+    //   $oldUrl = Session::get('oldUrl');
+    //   Session::forget('oldUrl');
+    //
+    //   return redirect()->to($oldUrl);
+    // }
 
     return redirect()->route('productIndexRoute');
   }
@@ -54,13 +54,13 @@ class UserController extends Controller{
         'success_message' => "Welcome " . Auth::user()->email
       ];
 
-      if(Session::has('oldUrl')){
-
-        $oldUrl = Session::get('oldUrl');
-        Session::forget('oldUrl');
-
-        return redirect()->to($oldUrl)->with($context);
-      }
+      // if(Session::has('oldUrl')){
+      //
+      //   $oldUrl = Session::get('oldUrl');
+      //   Session::forget('oldUrl');
+      //
+      //   return redirect()->to($oldUrl)->with($context);
+      // }
 
       return redirect()->route('userProfileRoute')->with($context);
     }

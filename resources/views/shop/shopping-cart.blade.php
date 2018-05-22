@@ -68,9 +68,9 @@
   @else
     <div class='row'>
       <div class='col s8 offset-s2'>
-        <h1 class='pink-text'> Cart Empty! </h1>
-        <h4 class='mt64'>
-          Please <a href="{{ route('productIndexRoute')}}"> shop some products </a>
+        <h2 class='pink-text'> There are no items in your Cart! </h2>
+        <h4>
+          Please <a href="{{ route('productIndexRoute')}}"> shop some products first</a>
         </h4>
       </div>
     </div>

@@ -11,6 +11,7 @@
 @section('content')
   <div class='row'>
     <div class='col s10 offset-s1'>
+      @if($orders->count())
       <div class='row'>
         <div class='col s8 offset-s2'>
           <h4 class='mt32 center-align'>My Orders</h4>
@@ -49,6 +50,14 @@
 
         </div>
       </div>
+      @else
+        <div class='row'>
+          <h2 class='pink-text'>You haven't placed any orders yet! </h2>
+          <h4 class='mt64'>
+            Please <a href="{{ route('productShowCartRoute')}}"> checkout to place orders</a>
+          </h4>
+        </div>
+      @endif
     </div>
   </div>
 @endsection
