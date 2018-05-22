@@ -25,7 +25,7 @@
                 <img class='responsive-img' src= "{{ $product->imgPath }}" title=" {{ $product->title}}" />
               </div>
               <div class="card-content">
-                <h5> {{ $product->title }}</h5>
+                <h5 class='center-align prod_index_prodHeading'> {{ $product->title }}</h5>
                 <p> {{ substr($product->description, 0, 60) }} ...</p>
               </div>
               <div class="card-action ">

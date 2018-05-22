@@ -26,7 +26,7 @@ class ProductTableSeeder extends Seeder
       $product = new Product([
         // 'imgPath' => 'http://localhost:8000/images/dummy_product_1.jpg',
         'imgPath' => 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRD30gL2h4pO4sh50XfL5SMzxyACsmMq0E4M768TAh3g8rDBfPu',
-        'title' => 'Harry Potter & Deathly Hallows',
+        'title' => 'Harry Potter Deathly Hallows',
         'description' => 'JK Rowling creates a final installment to HP',
         'price' => 22.99
       ]);
@@ -75,7 +75,7 @@ class ProductTableSeeder extends Seeder
 
       $product = new Product([
         // 'imgPath' => 'http://localhost:8000/images/dummy_product_1.jpg',
-        'imgPath' => 'http://localhost:8000/images/dummy_product_1.jpg',
+        'imgPath' => 'https://images-na.ssl-images-amazon.com/images/I/41Y2MEVGA4L._SX333_BO1,204,203,200_.jpg',
         'title' => 'The Godfather',
         'description' => 'Crime Thriller about Mafia and Mob by Mario Puzo',
         'price' => 28.99
@@ -105,7 +105,7 @@ class ProductTableSeeder extends Seeder
 
       $product = new Product([
         // 'imgPath' => 'http://localhost:8000/images/dummy_product_3.jpg',
-        'imgPath' => 'http://localhost:8000/images/dummy_product_1.jpg',
+        'imgPath' => 'https://images.gr-assets.com/books/1427584738l/22026.jpg',
         'title' => 'The Sicilian',
         'description' => 'Sicilian drama by Mario Puzo put lorem ipsum here and there',
         'price' => 11.99

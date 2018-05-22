@@ -24,6 +24,10 @@
   height: 44px;
 }
 
+.prod_index_prodHeading{
+  font-size: 1.44rem;
+  margin: 1.0933333333rem 0 1.0933333333rem 0;
+}
 
 /* Override Default CSS */
 .card-action{
