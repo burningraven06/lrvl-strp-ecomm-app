@@ -43,6 +43,12 @@
               </a>
             </li>
           @endif
+          <li  class='nav_li'>
+            <a href="{{ route('aboutRoute')}}">
+              <span class='nav_span center-align'> About </span>
+              <i class='material-icons'>sms</i>
+            </a>
+          </li>
         </ul>
       </div>
     </div>

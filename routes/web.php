@@ -11,6 +11,11 @@
 |
 */
 
+Route::get('/about', [
+  'uses' => 'PagesController@about',
+  'as' => 'aboutRoute'
+]);
+
 Route::get('/', [
   'uses' => 'ProductController@getIndex',
   'as' => 'productIndexRoute',
