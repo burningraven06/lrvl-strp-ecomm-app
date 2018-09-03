@@ -161,7 +161,8 @@ class ProductController extends Controller{
 
       $order = new Order();
 
-      $order->cart = serialize($cart);
+      $order->cart = base64_encode(serialize($cart));
+      // $order->cart = json_encode($cart);
       $order->cust_full_name = $req['first_name'] ." ".$req['last_name'];
       $order->cust_email = $req['email'];
       $order->cust_contact_phone = $req['cellno'];
